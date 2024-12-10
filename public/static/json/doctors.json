@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Dr. ricardo",
+    "specialty": "Cirujano",
+    "image": "public/static/img/doctor_1.png",
+    "experience": 3,
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. luis",
+    "specialty": "Cirujano",
+    "image": "public/static/img/doctor_2.png",
+    "experience": 10,
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. victor",
+    "specialty": "Cirujano",
+    "image": "public/static/img/doctor_3.png",
+    "experience": 2,
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. lucio",
+    "specialty": "Cirujano",
+    "image": "public/static/img/doctor_4.png",
+    "experience": 4,
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. juan",
+    "specialty": "Traumatología.",
+    "image": "public/static/img/doctor_1.png",
+    "experience": 7,
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. pedro",
+    "specialty": "Otorrinolaringología.",
+    "image": "public/static/img/doctor_2.png",
+    "experience": 5,
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. josé",
+    "specialty": "Kinesiología.",
+    "image": "public/static/img/doctor_3.png",
+    "experience": 8,
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  },
+  {
+    "name": "Dr. eduardo",
+    "specialty": "Gediatría.",
+    "image": "public/static/img/doctor_4.png",
+    "experience": 10,
+    "diplomas": {
+      "titulo": "universidad de chile",
+      "magister": "pointificia universidad católica"
+    }
+  }
+]
+
