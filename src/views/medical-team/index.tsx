@@ -1,5 +1,7 @@
 export default function MedicalTeam() {
   return (
-    <h1>Equipo Médico</h1>
+    <>
+      <h1>Equipo Médico</h1>
+    </>
   )
 }
