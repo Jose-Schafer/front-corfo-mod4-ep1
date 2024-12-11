@@ -15,16 +15,14 @@ export default function MedicalTeam() {
     loadDoctors()
   }, [])
 
-  console.log(doctors)
-
-  if (!doctors) {
-    return <h1>Loading ...</h1>
+  if (doctors.length === 0) {
+    return (<h1>Loading ...</h1>)
   }
 
   return (
-    <div>
-      <h1>Equipo Médico</h1>
-      <div className="grid grid-cols-6 gap-1">
+    <div className="p-4">
+      <h1 className="text-3xl font-bold text-center mb-6">Equipo Médico</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
         {doctors.map((doctor, key) => (
           <DoctorCard key={key} doctor={doctor} />
         ))}
