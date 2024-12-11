@@ -23,7 +23,7 @@ export default function Footer() {
         {/* Navigation Links */}
         <ul className="flex justify-center space-x-6 mb-8">
           {routes.map((route, index) => (
-            <li>
+            <li key={index}>
               <a href={route.path} className="hover:underline">{route.text}</a>
             </li>
           ))}

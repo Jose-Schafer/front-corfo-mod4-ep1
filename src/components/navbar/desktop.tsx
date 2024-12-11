@@ -24,11 +24,9 @@ export function Navbar() {
 function NavigationMenuItem({ href, text }) {
   return (
     <BaseNavigationMenuItem className="my-4 pl-8">
-      <a href={`${href}`}>
-        <NavigationMenuLink className={`${bgColor} ${textColor} text-2xl`}>
-          {text}
-        </NavigationMenuLink>
-      </a>
+      <NavigationMenuLink href={`${href}`} className={`${bgColor} ${textColor} text-2xl`}>
+        {text}
+      </NavigationMenuLink>
     </BaseNavigationMenuItem >
   )
 
