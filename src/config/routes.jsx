@@ -23,5 +23,5 @@ export const routes = [
     "path": "/backoffice",
     "text": "Backoffice",
     "component": <Backoffice />
-  },
+  }
 ]

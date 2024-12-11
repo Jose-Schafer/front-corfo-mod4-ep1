@@ -9,9 +9,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        {routes.map((route) => {
-          <Route path={route.path} element={<Layout>{route.component}</Layout>} />
-        })}
+        {routes.map((route, index) => (
+          <Route path={route.path} element={<Layout>{route.component}</Layout>} key={index} />
+        ))}
       </Routes>
     </BrowserRouter>
   </StrictMode>

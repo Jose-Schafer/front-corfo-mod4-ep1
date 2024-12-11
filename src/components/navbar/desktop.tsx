@@ -5,14 +5,17 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 
+import { routes } from '@/config/routes'
+
 import { bgColor, textColor } from './constants'
 
 export function Navbar() {
   return (
     <NavigationMenu className={`fixed top-0 left-0 ${bgColor}`}>
       <NavigationMenuList className="w-screen">
-        <NavigationMenuItem href="/" text="Inicio" />
-        <NavigationMenuItem href="/equipo-medico" text="Equipo Médico" />
+        {routes.map((route, index) => (
+          <NavigationMenuItem href={route.path} text={route.text} key={index} />
+        ))}
       </NavigationMenuList >
     </NavigationMenu >
   )
@@ -20,7 +23,7 @@ export function Navbar() {
 
 function NavigationMenuItem({ href, text }) {
   return (
-    <BaseNavigationMenuItem className="m-4">
+    <BaseNavigationMenuItem className="my-4 pl-8">
       <a href={`${href}`}>
         <NavigationMenuLink className={`${bgColor} ${textColor} text-2xl`}>
           {text}
