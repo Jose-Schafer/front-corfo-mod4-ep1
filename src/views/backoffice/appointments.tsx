@@ -14,24 +14,19 @@ import { get } from '@/api/requests'
 
 
 export default function AppointmentsTable({ appointments }) {
-  const [doctors, setDoctors] = useState([]);
+  const [doctors, setDoctors] = useState({});
 
   useEffect(() => {
     const loadDoctors = async () => {
       const doctors = await get('/static/json/doctors.json');
-      setDoctors(doctors);
+
+      const doctorsDict = Object.assign({}, ...doctors.map((x) => ({ [x.id]: { ...x } })));
+      setDoctors(doctorsDict);
     }
 
     loadDoctors();
 
   }, [])
-
-  const getDoctorById = (doctorId) => {
-    if (doctors.length === 0) {
-      return ""
-    }
-    return doctors.filter((doctor) => doctor.id === Number(doctorId))[0].name
-  }
 
   return (
     <Table>
@@ -48,8 +43,9 @@ export default function AppointmentsTable({ appointments }) {
         {appointments.map((appointment, index) => (
           <TableRow key={index}>
             <TableCell className="font-medium">{appointment.schedule}</TableCell>
-            <TableCell>{getDoctorById(appointment.doctorId)}</TableCell>
+            <TableCell>{doctors[appointment.doctorId]?.name}</TableCell>
             <TableCell>{appointment.name}</TableCell>
+            <TableCell className="text-right">{doctors[appointment.doctorId]?.hour_price}</TableCell>
           </TableRow>
         ))}
       </TableBody>
