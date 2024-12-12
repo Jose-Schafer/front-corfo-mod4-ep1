@@ -40,7 +40,7 @@ export class AppointmentStack {
     }
 
     // Sort the stack by the "fechaHora" property
-    const sortedStack = [...this.stack].sort((a, b) => new Date(a.fechaHora) - new Date(b.fechaHora));
+    const sortedStack = [...this.stack].sort((a, b) => new Date(a.schedule) - new Date(b.schedule));
 
     // Return the closest upcoming appointment
     return sortedStack;
