@@ -1,21 +1,12 @@
-import { useEffect, useState } from 'react'
-import { get } from '@/api/requests'
 import DoctorCard from '@/components/doctor-card'
+
+import { useDoctors } from "@/providers/DoctorsContext"
 
 export default function MedicalTeam() {
 
-  const [doctors, setDoctors] = useState([]);
+  const { doctors, loading } = useDoctors();
 
-  useEffect(() => {
-    const loadDoctors = async () => {
-      const doctors = await get('/static/json/doctors.json');
-      setDoctors(doctors);
-    }
-
-    loadDoctors()
-  }, [])
-
-  if (doctors.length === 0) {
+  if (loading) {
     return (<h1>Loading ...</h1>)
   }
 

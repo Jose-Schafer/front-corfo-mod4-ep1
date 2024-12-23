@@ -20,18 +20,11 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+import { useDoctors } from "@/providers/DoctorsContext"
+
 export default function DoctorSelector({ form }) {
-  const [doctors, setDoctors] = useState([])
+  const { doctors } = useDoctors();
   const [selectedDoctor, setSelectedDoctor] = useState({})
-
-  useEffect(() => {
-    const loadDoctors = async () => {
-      const doctors = await get('/static/json/doctors.json');
-      setDoctors(doctors);
-    }
-
-    loadDoctors()
-  }, [])
 
   useEffect(() => {
     const { doctorId } = { ...form.getValues() }

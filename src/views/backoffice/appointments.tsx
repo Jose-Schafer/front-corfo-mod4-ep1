@@ -10,23 +10,16 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-import { get } from '@/api/requests'
+import { useDoctors } from "@/providers/DoctorsContext"
 
 
 export default function AppointmentsTable({ appointments }) {
-  const [doctors, setDoctors] = useState({});
+  const { doctors, loading } = useDoctors();
 
-  useEffect(() => {
-    const loadDoctors = async () => {
-      const doctors = await get('/static/json/doctors.json');
-
-      const doctorsDict = Object.assign({}, ...doctors.map((x) => ({ [x.id]: { ...x } })));
-      setDoctors(doctorsDict);
-    }
-
-    loadDoctors();
-
-  }, [])
+  const getTotalAmount = () => {
+    // console.log(appointments.map((appointment) => ()))
+    return 5
+  }
 
   return (
     <Table>
