@@ -17,10 +17,19 @@ export default function AppointmentsTable({ appointments }) {
   const { doctors } = useDoctors();
 
   const getTotalAmount = () => {
-    // console.log(appointments.map((appointment) => ()))
-    return 5
+    const total = appointments.reduce((total, appointment) => {
+      const doctor = doctors[appointment.doctorId];
+      return doctor ? total + doctor.hour_price : total;
+    }, 0);
+    return formatMoney(total)
+  };
+
+  const formatMoney = (value) => {
+    return new Intl.NumberFormat("es-CL", {
+      style: "currency",
+      currency: "CLP",
+    }).format(value);
   }
-  console.log(appointments)
 
   return (
     <Table>
@@ -39,14 +48,14 @@ export default function AppointmentsTable({ appointments }) {
             <TableCell className="font-medium">{appointment.schedule}</TableCell>
             <TableCell>{doctors[appointment.doctorId]?.name}</TableCell>
             <TableCell>{appointment.name}</TableCell>
-            <TableCell className="text-right">{doctors[appointment.doctorId]?.hour_price}</TableCell>
+            <TableCell className="text-right">{formatMoney(doctors[appointment.doctorId]?.hour_price)}</TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
         <TableRow>
           <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
+          <TableCell className="text-right">{getTotalAmount()}</TableCell>
         </TableRow>
       </TableFooter>
     </Table>
@@ -54,10 +63,11 @@ export default function AppointmentsTable({ appointments }) {
 }
 
 AppointmentsTable.propTypes = {
-  appointments: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    doctorId: PropTypes.string.isRequired,
-    schedule: PropTypes.string.isRequired,
-  })
+  appointments: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      doctorId: PropTypes.string.isRequired,
+      schedule: PropTypes.string.isRequired,
+    }))
 };
