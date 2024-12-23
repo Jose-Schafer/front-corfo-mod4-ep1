@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import {
   Table,
   TableBody,
@@ -12,14 +11,16 @@ import {
 
 import { useDoctors } from "@/providers/DoctorsContext"
 
+import PropTypes from 'prop-types'
 
 export default function AppointmentsTable({ appointments }) {
-  const { doctors, loading } = useDoctors();
+  const { doctors } = useDoctors();
 
   const getTotalAmount = () => {
     // console.log(appointments.map((appointment) => ()))
     return 5
   }
+  console.log(appointments)
 
   return (
     <Table>
@@ -52,3 +53,11 @@ export default function AppointmentsTable({ appointments }) {
   )
 }
 
+AppointmentsTable.propTypes = {
+  appointments: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    doctorId: PropTypes.string.isRequired,
+    schedule: PropTypes.string.isRequired,
+  })
+};
