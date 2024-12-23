@@ -6,6 +6,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+import PropTypes from 'prop-types'
+
 export default function DoctorCard({ doctor }) {
   return (
     <Card className="max-w-sm w-full mx-auto shadow-lg rounded-lg overflow-hidden">
@@ -26,3 +28,13 @@ export default function DoctorCard({ doctor }) {
     </Card>
   )
 }
+
+DoctorCard.propTypes = {
+  doctors: PropTypes.objectOf(
+    PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      experience: PropTypes.string.isRequired
+    })
+  )
+};
