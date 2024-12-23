@@ -1,10 +1,10 @@
+import { useEffect, useRef } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { useToast } from "@/hooks/use-toast"
 import { Toaster } from "@/components/ui/toaster"
-
 
 import DoctorSelector from "./fields/doctor-selector"
 
@@ -37,6 +37,7 @@ const formSchema = z.object({
   }),
 })
 
+
 const appointmentStack = new AppointmentStack();
 
 export default function Form() {
@@ -62,6 +63,13 @@ export default function Form() {
     })
   }
 
+  const nameInputRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (nameInputRef.current) {
+      nameInputRef.current.focus()
+    }
+  }, [])
+
   return (
     <BaseForm {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
@@ -73,7 +81,7 @@ export default function Form() {
             <FormItem>
               <FormLabel>Nombre</FormLabel>
               <FormControl>
-                <Input placeholder="nombre" {...field} />
+                <Input placeholder="nombre" {...field} ref={nameInputRef} />
               </FormControl>
               <FormMessage />
             </FormItem>
