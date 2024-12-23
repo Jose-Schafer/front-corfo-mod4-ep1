@@ -1,9 +1,10 @@
 import {
   NavigationMenu,
   NavigationMenuItem as BaseNavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
+
+import { Link } from 'react-router';
 
 import { routes } from '@/config/routes'
 
@@ -24,9 +25,9 @@ export function Navbar() {
 function NavigationMenuItem({ href, text }) {
   return (
     <BaseNavigationMenuItem className="my-4 pl-8">
-      <NavigationMenuLink href={`${href}`} className={`${bgColor} ${textColor} text-2xl`}>
+      <Link to={`${href}`} className={`${bgColor} ${textColor} text-2xl`}>
         {text}
-      </NavigationMenuLink>
+      </Link>
     </BaseNavigationMenuItem >
   )
 

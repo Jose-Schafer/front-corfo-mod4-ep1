@@ -6,6 +6,9 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+
+import { routes } from '@/config/routes'
+import { Link } from 'react-router';
 import { bgColor, textColor } from './constants'
 
 export function Navbar() {
@@ -16,8 +19,9 @@ export function Navbar() {
         <DrawerHeader>
           <DrawerTitle>Menú de navegación</DrawerTitle>
         </DrawerHeader>
-        <NavigationMenuItem href="/" text="Inicio" />
-        <NavigationMenuItem href="/equipo-medico" text="Equipo Médico" />
+        {routes.map((route, index) => (
+          <NavigationMenuItem href={route.path} text={route.text} key={index} />
+        ))}
       </DrawerContent>
     </Drawer>
   )
@@ -25,8 +29,8 @@ export function Navbar() {
 
 function NavigationMenuItem({ href, text }) {
   return (
-    <a href={`${href}`} className={`${textColor} text-2xl mx-4 m-2`}>
+    <Link to={`${href}`} className={`${textColor} text-2xl mx-4 m-2`}>
       {text}
-    </a>
+    </Link>
   )
 }
