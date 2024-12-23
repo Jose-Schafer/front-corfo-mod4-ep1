@@ -23,3 +23,15 @@ En `src/views/medical-team/index.jsx` se ve como se usa el hook useEffect para c
 En `src/views/contact/form.tsx` se utiliza useRef para referenciar el primer input y hacerle focus cuando se carga esa vista, de esta forma el usuario puede partir escribiendo inmediatamente.
 
 3. Uso de fragmentos y contexto en ReactJS
+Se pude ver el uso de fragmentos en `src/views/contact/index.jsx`.
+
+En cuanto al contexto, podemos ver a un provider `DoctorsProvider` en uso en `src/main.tsx`. Este provider permite hacer una sola request para obtener los doctores y utilizar la respuesta en varios componentes hijos del Provider.
+
+4. Verificación de tipos con PropTypes
+Revisar implementación en:
+- `src/views/home/services.jsx`
+- `src/views/backoffice/appointments.jsx`
+- `src/components/doctor-card/index.jsx`
+
+5. Uso de componentes de Orden Superior y Portales
+Se agrega un HOC en `src/hoc/modal/index.jsx` y se utiliza en `src/components/doctor-card` para mostrar un modal con más información del doctor.
